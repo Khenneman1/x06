@@ -1,4 +1,6 @@
+#include <iostream>
 #include "TicTacToeBoard.h"
+using namespace std;
 /**
  * Class for representing a 3x3 Tic-Tac-Toe game board, using the Piece enum
  * to represent the spaces on the board.
@@ -7,19 +9,24 @@
 //Switches turn member variable to represent whether it's X's or O's turn
 void TicTacToeBoard::toggleTurn()
 {
-
 }
 
 //Constructor sets an empty board and specifies it is X's turn first
 TicTacToeBoard::TicTacToeBoard()
 {
-
+ 	 turn = X;
 }
 
 //Resets each board location to the Blank Piece value
 void TicTacToeBoard::clearBoard()
 {
-
+	for(int i=0; i<3;i++)
+	{
+		for( int j=0; j<3;j++)
+		{
+//           		board[i][j] = [0];
+		}
+	}
 }
 
 /**
@@ -31,7 +38,31 @@ void TicTacToeBoard::clearBoard()
 **/ 
 Piece TicTacToeBoard::placePiece(int row, int column)
 {
-  return Invalid;
+	if(( row > 2) || (row <0) || (column > 2) || (column < 0))
+	{
+		return Invalid;
+	}
+	else
+	{
+	if((board[row][column] == X) || (board[row][column] == O))
+	{
+		cout<< board[row][column]<<endl;
+	}
+	else
+	{
+	if(turn == X)
+	{
+		board[row][column] = X;
+		cout << "X" << endl;
+	}
+	else if (turn == O)
+	{
+		board[row][column] = O;
+		cout<< "O" << endl;
+	}
+	}
+	}
+  
 }
 
 /**
@@ -50,4 +81,12 @@ Piece TicTacToeBoard::getPiece(int row, int column)
 Piece TicTacToeBoard::getWinner()
 {
   return Invalid;
+
 }
+
+int main()
+{
+	cin>> row; cin>>column;
+return 0;
+}
+

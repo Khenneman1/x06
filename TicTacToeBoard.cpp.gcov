@@ -1,0 +1,98 @@
+        -:    0:Source:TicTacToeBoard.cpp
+        -:    0:Graph:TicTacToeBoard.gcno
+        -:    0:Data:TicTacToeBoard.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    0:Source is newer than graph
+        -:    1:#include <iostream>
+        -:    2:#include "TicTacToeBoard.h"
+        -:    3:using namespace std;
+        -:    4:/**
+        -:    5: * Class for representing a 3x3 Tic-Tac-Toe game board, using the Piece enum
+        -:    6: * to represent the spaces on the board.
+        -:    7:**/
+        -:    8:
+        -:    9://Switches turn member variable to represent whether it's X's or O's turn
+    #####:   10:void TicTacToeBoard::toggleTurn()
+        -:   11:{
+    #####:   12:}
+        -:   13:
+        -:   14://Constructor sets an empty board and specifies it is X's turn first
+    #####:   15:TicTacToeBoard::TicTacToeBoard()
+        -:   16:{
+    #####:   17: 	 turn = X;
+    #####:   18:}
+        -:   19:
+        -:   20://Resets each board location to the Blank Piece value
+    #####:   21:void TicTacToeBoard::clearBoard()
+        -:   22:{
+    #####:   23:	for(int i=0; i<3;i++)
+        -:   24:	{
+    #####:   25:		for( int j=0; j<3;j++)
+        -:   26:		{
+        -:   27://           		board[i][j] = [0];
+        -:   28:		}
+        -:   29:	}
+    #####:   30:}
+        -:   31:
+        -:   32:/**
+        -:   33: * Places the piece of the current turn on the board, returns what
+        -:   34: * piece is placed, and toggles which Piece's turn it is. placePiece does 
+        -:   35: * NOT allow to place a piece in a location where there is already a piece.
+        -:   36: * In that case, placePiece just returns what is already at that location. 
+        -:   37: * Out of bounds coordinates return the Piece Invalid value
+        -:   38:**/ 
+    #####:   39:Piece TicTacToeBoard::placePiece(int row, int column)
+        -:   40:{
+    #####:   41:	if(( row > 2) || (row <0) || (column > 2) || (column < 0))
+        -:   42:	{
+    #####:   43:		return Invalid;
+        -:   44:	}
+        -:   45:	else
+        -:   46:	{
+    #####:   47:	if((board[row][column] == X) || (board[row][column] == O))
+        -:   48:	{
+    #####:   49:		cout<< board[row][column]<<endl;
+        -:   50:	}
+        -:   51:	else
+        -:   52:	{
+    #####:   53:	if(turn == X)
+        -:   54:	{
+    #####:   55:		board[row][column] = X;
+    #####:   56:		cout << "X" << endl;
+        -:   57:	}
+    #####:   58:	else if (turn == O)
+        -:   59:	{
+    #####:   60:		board[row][column] = O;
+    #####:   61:		cout<< "O" << endl;
+        -:   62:	}
+        -:   63:	}
+        -:   64:	}
+        -:   65:  
+    #####:   66:}
+        -:   67:
+        -:   68:/**
+        -:   69: * Returns what piece is at the provided coordinates, or Blank if there
+        -:   70: * are no pieces there, or Invalid if the coordinates are out of bounds
+        -:   71:**/
+    #####:   72:Piece TicTacToeBoard::getPiece(int row, int column)
+        -:   73:{
+    #####:   74:  return Invalid;
+        -:   75:}
+        -:   76:
+        -:   77:/**
+        -:   78: * Returns which Piece has won, if there is a winner, Invalid if the game
+        -:   79: * is not over, or Blank if the board is filled and no one has won.
+        -:   80:**/
+    #####:   81:Piece TicTacToeBoard::getWinner()
+        -:   82:{
+    #####:   83:  return Invalid;
+        3:   84:
+        -:   85:}
+        -:   86:
+        -:   87:int main()
+        -:   88:{
+        -:   89:	cin>> row; cin>>column;
+        -:   90:return 0;
+        -:   91:}
+        -:   92:
